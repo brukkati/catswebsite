@@ -1,0 +1,230 @@
+/* Root Variables */
+:root {
+    --primary-color: #FFC3A0;
+    --secondary-color: #FF6F61;
+    --background-gradient: linear-gradient(to right, #FFDEE9, #B5FFFC);
+    --font-family: 'Poppins', sans-serif;
+    --font-secondary: 'Roboto', sans-serif;
+    --transition-speed: 0.3s;
+    --dark-color: #333;
+    --light-color: #f0f0f0;
+}
+
+/* General Styles */
+body {
+    margin: 0;
+    font-family: var(--font-family);
+    line-height: 1.6;
+    background: var(--background-gradient);
+    color: var(--dark-color);
+    overflow-x: hidden; /* Убираем горизонтальную прокрутку */
+}
+
+header {
+    background: #FF6F61;
+    color: white;
+    padding: 10px 20px;
+}
+
+header nav ul {
+    display: flex;
+    list-style: none;
+    justify-content: space-around;
+    margin: 0;
+    padding: 0;
+}
+
+header nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color var(--transition-speed);
+}
+
+header nav ul li a:hover {
+    color: var(--primary-color);
+}
+
+/* Hero Section */
+#hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 50vh;
+    color: var(--dark-color);
+    background: var(--background-gradient);
+}
+
+#hero .hero-content h1 {
+    font-size: 3rem;
+    font-family: var(--font-secondary);
+}
+
+#hero .hero-content p {
+    font-size: 1.5rem;
+    margin-top: 10px;
+}
+
+/* About Section */
+#about, #care {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+#about h2, #care h2 {
+    font-size: 2rem;
+    color: var(--secondary-color);
+}
+
+.about-content, .care-content {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+}
+
+.about-item, .care-item {
+    background: var(--light-color);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.about-item h3, .care-item h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+/* Fact Box Styles */
+.fact-box {
+    background-color: #FF6F61;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    font-family: var(--font-family);
+    font-size: 1rem;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s;
+    width: 100%; /* Убираем фиксированную ширину, чтобы карточки лучше адаптировались */
+    max-width: 350px; /* Ограничиваем максимальную ширину */
+    margin: 0 auto; /* Центрируем карточки */
+}
+
+.fact-box input[type="checkbox"] {
+    display: none;
+}
+
+.fact-box summary {
+    font-weight: bold;
+    font-size: 1.2rem;
+    cursor: pointer;
+    margin-bottom: 10px;
+    outline: none;
+}
+
+.fact-box summary:hover {
+    color: var(--primary-color);
+}
+
+.fact-box .fact-text {
+    display: none;
+    margin-top: 10px;
+}
+
+.fact-box input[type="checkbox"]:checked + label + .fact-text {
+    display: block;
+}
+
+.fact-box:hover {
+    transform: scale(1.05);
+}
+
+/* Fact Box Container */
+.grid-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px; /* Пробел между карточками */
+    padding: 20px;
+}
+
+/* Gallery Section */
+#gallery {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+#gallery h2 {
+    font-size: 2rem;
+    color: var(--secondary-color);
+    margin-bottom: 40px;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    transition: transform var(--transition-speed);
+}
+
+.gallery-item img:hover {
+    transform: scale(1.05);
+}
+
+/* Footer */
+footer {
+    background: #FF6F61;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #hero .hero-content h1 {
+        font-size: 2rem;
+    }
+
+    #hero .hero-content p {
+        font-size: 1.2rem;
+    }
+
+    nav ul {
+        flex-direction: column;
+    }
+
+    section {
+        padding: 30px;
+    }
+
+    .grid-container {
+        grid-template-columns: 1fr;
+    }
+
+    .about-content, .care-content {
+        grid-template-columns: 1fr;
+    }
+
+    .fact-box {
+        max-width: 100%; /* Делаем карточки более гибкими на маленьких экранах */
+    }
+}
+
+/* Accessibility */
+a:focus,
+button:focus {
+    outline: 3px solid var(--secondary-color);
+    outline-offset: 2px;
+}
+
+/* Browser compatibility */
+img {
+    max-width: 100%;
+    height: auto;
+}
